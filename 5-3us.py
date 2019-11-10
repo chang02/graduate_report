@@ -1,5 +1,8 @@
 import pymysql
 import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+rc('font', family=font_name)
 
 con = pymysql.connect(host="localhost", user="root", password="ckddud950!", db="youtube_popular2", charset="utf8")
 cur = con.cursor()
@@ -19,7 +22,7 @@ for element in result:
     else:
         views.append(result[0])
 
-plt.title('Box plot of views of rank 1')
+plt.title('특정 인기 순위(1위)에서의 조회수에 대한 boxplot(US)')
 plt.xticks([1],['views'])
 plt.boxplot(views, sym="bo")
 plt.savefig('5-3usresult.png')

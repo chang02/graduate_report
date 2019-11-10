@@ -56,6 +56,7 @@ for ii in range(0, len(category) - 1):
     x.append(temp)
     y.append(count / len(jaccards))
 
+    plt.title('카테고리 별로 인기 영상 얼마나 잘 변화하는지 CDF(US)')
     plt.plot(x, y, color=col[ii], label=category[ii])
     plt.legend()
     plt.savefig('6usresult.png')

@@ -1,5 +1,8 @@
 import pymysql
 import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+rc('font', family=font_name)
 
 con = pymysql.connect(host="localhost", user="root", password="ckddud950!", db="youtube_popular", charset="utf8")
 cur = con.cursor()
@@ -88,8 +91,10 @@ for data in likesPerHates:
 x2.append(temp)
 y2.append(count / len(likesPerHates))
 
-plt.plot(x, y, color="blue")
-plt.plot(x2, y2, color="red")
+plt.title('(좋아요 / 싫어요) CDF (영상별로 가장 마지막 timeId)')
+plt.plot(x, y, color="blue", label="KR")
+plt.plot(x2, y2, color="red", label="US")
+plt.legend()
 plt.savefig('5-2result.png')
 
 con.close()

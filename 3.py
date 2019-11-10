@@ -1,5 +1,8 @@
 import pymysql
 import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+rc('font', family=font_name)
 
 # kr timeId 277 전까지는 15분 277은 22.5분 그 이후는 30분으로 친다.
 con = pymysql.connect(host="localhost", user="root", password="ckddud950!", db="youtube_popular", charset="utf8")
@@ -96,8 +99,11 @@ for data in timeOnPopularList:
         count += 1
 x.append(temp)
 y.append(count / len(timeOnPopularList))
-plt.plot(x, y, color="blue")
-plt.plot(x2, y2, color="red")
+
+plt.title('인기영상 리스트에 올라와있는 시간 CDF')
+plt.plot(x, y, color="blue", label="KR")
+plt.plot(x2, y2, color="red", label="US")
+plt.legend()
 plt.savefig('3result.png')
 
 con.close()

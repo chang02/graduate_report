@@ -1,6 +1,9 @@
 import pymysql
 import json
 import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+rc('font', family=font_name)
 
 def getJaccard(list1, list2):
     count = 0
@@ -89,7 +92,9 @@ for data in jaccards:
 x2.append(temp)
 y2.append(count / len(jaccards))
 
-plt.plot(x, y, color="blue")
-plt.plot(x2, y2, color="red")
+plt.title('인기 영상이 얼마나 잘 변화하는지 CDF')
+plt.plot(x, y, color="blue", label="KR")
+plt.plot(x2, y2, color="red", label="US")
+plt.legend()
 plt.savefig('2result.png')
 con.close()
