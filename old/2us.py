@@ -29,7 +29,7 @@ for ele in result:
 populars.append(temp)
 
 jaccards = []
-for i in range(0, len(populars) - 2):
+for i in range(0, len(populars) - 1):
     jaccards.append(getJaccard(populars[i], populars[i+1]))
 
 x = [0]
