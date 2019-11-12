@@ -74,3 +74,9 @@ class plotHandler:
         plt.legend()
         plt.title(title)
         plt.savefig(name)
+    
+    def drawBox(self, li, x, title, name):
+        plt.title(title)
+        plt.xticks([1],[x])
+        plt.boxplot(li, sym="bo")
+        plt.savefig(name)
