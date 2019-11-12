@@ -35,13 +35,22 @@ class DBHandler:
         return videoList
     
     def getTimeIds(self):
-        sql = 'select id from captureTime where minute(time) = 0 and mod(hour(time), 2) = 0'
+        sql = 'select id from captureTime where minute(time) = 0 and mod(hour(time), 3) = 0'
         self.cur.execute(sql)
         rawTimeList = self.cur.fetchall()
         timeList = []
         for el in rawTimeList:
             timeList.append(el[0])
         return timeList
+    
+    def getRanks(self, videoId):
+        sql = 'select rank from popular where videoId = "' + videoId + '"'
+        self.cur.execute(sql)
+        rawRanks = self.cur.fetchall()
+        ranks = []
+        for el in rawRanks:
+            ranks.append(el[0])
+        return ranks
     
     def fetchone(self, sql):
         self.cur.execute(sql)
@@ -74,9 +83,33 @@ class plotHandler:
         plt.legend()
         plt.title(title)
         plt.savefig(name)
+        plt.clf()
     
     def drawBox(self, li, x, title, name):
         plt.title(title)
         plt.xticks([1],[x])
         plt.boxplot(li, sym="bo")
         plt.savefig(name)
+        plt.clf()
+    
+    def drawPie(self, labels, sizes, colors, title, name):
+        plt.title(title)
+        plt.pie(sizes, labels=labels, colors=colors, counterclock=False, startangle=90, autopct='%1.1f%%', pctdistance=0.7)
+        plt.savefig(name)
+        plt.clf()
+    
+    def drawRank(self, lis, colors, labels, title, name):
+        for i in range(0, len(lis)):
+            x = []
+            y = []
+            cnt = 0
+            for value in lis[i]:
+                x.append(cnt)
+                y.append(value)
+                cnt += 1
+            plt.plot(x, y, color=colors[i], label=labels[i])
+        plt.legend()
+        plt.gca().invert_yaxis()
+        plt.title(title)
+        plt.savefig(name)
+        plt.clf()
