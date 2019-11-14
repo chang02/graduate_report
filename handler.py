@@ -21,18 +21,31 @@ class DBHandler:
             videoList.append(el[0])
         return videoList
     
-    def getMeaningVideos(self):
-        sql = 'select max(id) from captureTime'
-        self.cur.execute(sql)
-        maxTimeId = self.cur.fetchone()[0]
+    def getMeaningVideos(self, category=None):
+        if category == None:
+            sql = 'select max(id) from captureTime'
+            self.cur.execute(sql)
+            maxTimeId = self.cur.fetchone()[0]
 
-        sql = 'select distinct videoId from popular where videoId not in (select videoId from popular where timeId = 1 or timeId = '+ str(maxTimeId) +')'
-        self.cur.execute(sql)
-        rawVideoList = self.cur.fetchall()
-        videoList = []
-        for el in rawVideoList:
-            videoList.append(el[0])
-        return videoList
+            sql = 'select distinct videoId from popular where videoId not in (select videoId from popular where timeId = 1 or timeId = '+ str(maxTimeId) +')'
+            self.cur.execute(sql)
+            rawVideoList = self.cur.fetchall()
+            videoList = []
+            for el in rawVideoList:
+                videoList.append(el[0])
+            return videoList
+        else:
+            sql = 'select max(id) from captureTime'
+            self.cur.execute(sql)
+            maxTimeId = self.cur.fetchone()[0]
+
+            sql = 'select distinct videoId from video where category = "' + category +'" and videoId not in (select videoId from popular where timeId = 1 or timeId = '+ str(maxTimeId) +')'
+            self.cur.execute(sql)
+            rawVideoList = self.cur.fetchall()
+            videoList = []
+            for el in rawVideoList:
+                videoList.append(el[0])
+            return videoList
     
     def getTimeIds(self):
         sql = 'select id from captureTime where minute(time) = 0 and mod(hour(time), 3) = 0'
