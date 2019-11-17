@@ -47,6 +47,15 @@ class DBHandler:
                 videoList.append(el[0])
             return videoList
     
+    def getShortTermTimeIds(self):
+        sql = 'select id from captureTime where minute(time) = 30 or minute(time) = 0'
+        self.cur.execute(sql)
+        rawTimeList = self.cur.fetchall()
+        timeList = []
+        for el in rawTimeList:
+            timeList.append(el[0])
+        return timeList
+
     def getTimeIds(self):
         sql = 'select id from captureTime where minute(time) = 0 and mod(hour(time), 3) = 0'
         self.cur.execute(sql)
@@ -124,5 +133,13 @@ class plotHandler:
         plt.legend()
         plt.gca().invert_yaxis()
         plt.title(title)
+        plt.savefig(name)
+        plt.clf()
+    
+    def drawScatter(self, x, y, xlabel, ylabel, color, title, name):
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.scatter(x, y, color=color)
         plt.savefig(name)
         plt.clf()
