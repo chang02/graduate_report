@@ -38,4 +38,4 @@ for video in videoList:
 views2 = sorted(views2)
 
 plothandler = plotHandler()
-plothandler.drawCDF([views, views2], ['blue', 'red'], ['KR', 'US'], '처음 인기영상에 rank되었을 때 조회수 CDF', '5-4result.png')
+plothandler.drawLogCDF([views, views2], ['blue', 'red'], ['KR', 'US'], '처음 인기영상에 rank되었을 때 조회수 CDF', '5-4result.png')

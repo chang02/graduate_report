@@ -1,7 +1,7 @@
-뉴스/정치 - 빨
-엔터테인먼트 - 주
-코미디 - 노
-인물/블로그 - 초
-음악 - 파
-스포츠 - 보
+뉴스/정치 - salmon
+엔터테인먼트 - darkorange
+코미디 - khaki
+인물/블로그 - springgreen
+음악 - steelblue
+스포츠 - blueviolet
 기타 - cyan

@@ -36,7 +36,7 @@ plothandler = plotHandler()
 plothandler.drawPie(
     [numCategoryList[0][0], numCategoryList[1][0], numCategoryList[2][0], numCategoryList[3][0], numCategoryList[4][0], numCategoryList[5][0]],
     [numCategoryList[0][1], numCategoryList[1][1], numCategoryList[2][1], numCategoryList[3][1], numCategoryList[4][1], numCategoryList[5][1]],
-    ['blue', 'red', 'orange', 'yellow', 'purple', 'green'],
+    ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet', 'cyan'],
     '주요 카테고리 별 비율',
     '1krresult.png'
 )
@@ -77,7 +77,7 @@ plothandler = plotHandler()
 plothandler.drawPie(
     [numCategoryList[0][0], numCategoryList[1][0], numCategoryList[2][0], numCategoryList[3][0], numCategoryList[4][0], numCategoryList[5][0]],
     [numCategoryList[0][1], numCategoryList[1][1], numCategoryList[2][1], numCategoryList[3][1], numCategoryList[4][1], numCategoryList[5][1]],
-    ['blue', 'red', 'orange', 'yellow', 'purple', 'green'],
+    ['salmon', 'blueviolet', 'khaki', 'steelblue', 'springgreen', 'cyan'],
     '주요 카테고리 별 비율',
     '1usresult.png'
 )

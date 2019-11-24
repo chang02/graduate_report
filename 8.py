@@ -9,7 +9,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categorieskr = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-color = ['red', 'orange', 'yellow', 'green', 'blue']
+color = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 timeOnPopularListList = []
 for category in categorieskr:
@@ -34,6 +34,7 @@ for category in categorieskr:
 
 plothandler = plotHandler()
 plothandler.drawCDF(timeOnPopularListList, color, categorieskr, '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)', '8krresult.png')
+plothandler.drawLogCDF(timeOnPopularListList, color, categorieskr, '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)(Log)', '8krresultlog.png')
 
 
 config = {
@@ -44,7 +45,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categoriesus = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
-color = ['red', 'orange', 'yellow', 'green', 'blue']
+color = ['darkorange', 'blueviolet', 'khaki', 'steelblue', 'springgreen']
 
 timeOnPopularListList = []
 for category in categoriesus:
@@ -69,3 +70,4 @@ for category in categoriesus:
 
 plothandler = plotHandler()
 plothandler.drawCDF(timeOnPopularListList, color, categoriesus, '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)', '8usresult.png')
+plothandler.drawLogCDF(timeOnPopularListList, color, categoriesus, '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)(Log)', '8usresultlog.png')

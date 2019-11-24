@@ -106,6 +106,29 @@ class plotHandler:
         plt.title(title)
         plt.savefig(name)
         plt.clf()
+
+    def drawLogCDF(self, lis, colors, labels, title, name):
+        for i in range(0, len(lis)):
+            x = [0]
+            y = [0]
+            temp = lis[i][0]
+            count = 0
+            for data in lis[i]:
+                if data == temp:
+                    count += 1
+                else:
+                    x.append(temp)
+                    y.append(count / len(lis[i]))
+                    temp = data
+                    count += 1
+            x.append(temp)
+            y.append(count / len(lis[i]))
+            plt.plot(x, y, color=colors[i], label=labels[i])
+        plt.legend()
+        plt.xscale('log')
+        plt.title(title)
+        plt.savefig(name)
+        plt.clf()
     
     def drawBox(self, li, x, title, name):
         plt.title(title)
@@ -140,6 +163,6 @@ class plotHandler:
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-        plt.scatter(x, y, color=color)
+        plt.scatter(x, y, color=color, s=5)
         plt.savefig(name)
         plt.clf()

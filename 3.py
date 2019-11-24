@@ -57,4 +57,4 @@ for video in videoList:
 timeOnPopularList2 = sorted(timeOnPopularList2)
 
 plothandler = plotHandler()
-plothandler.drawCDF([timeOnPopularList, timeOnPopularList2], ['blue', 'red'], ['KR', 'US'], '인기영상 리스트에 올라와있는 시간 CDF', '3result.png')
+plothandler.drawLogCDF([timeOnPopularList, timeOnPopularList2], ['blue', 'red'], ['KR', 'US'], '인기영상 리스트에 올라와있는 시간 CDF', '3result.png')

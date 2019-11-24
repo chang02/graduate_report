@@ -9,7 +9,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categorieskr = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-color = ['red', 'orange', 'yellow', 'green', 'blue']
+color = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 
 likesHatesPerViewsListList = []
@@ -39,7 +39,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categoriesus = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
-color = ['red', 'orange', 'yellow', 'green', 'blue']
+color = ['darkorange', 'blueviolet', 'khaki', 'steelblue', 'springgreen']
 
 
 likesHatesPerViewsListList = []

@@ -18,7 +18,7 @@ dbhandler = DBHandler(config)
 timeIds = dbhandler.getTimeIds()
 
 category = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-col = ['red', 'orange', 'yellow', 'green', 'blue']
+col = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 jaccardsList = []
 for ii in range(0, len(category)):
@@ -56,7 +56,7 @@ dbhandler = DBHandler(config)
 timeIds = dbhandler.getTimeIds()
 
 category = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
-col = ['red', 'orange', 'yellow', 'green', 'blue']
+col = ['darkorange', 'blueviolet', 'khaki', 'steelblue', 'springgreen']
 
 jaccardsList = []
 for ii in range(0, len(category)):
