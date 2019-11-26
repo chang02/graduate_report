@@ -9,7 +9,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categorieskr = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-color = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
+color = ['crimson', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 timeOnPopularListList = []
 for category in categorieskr:
@@ -17,24 +17,29 @@ for category in categorieskr:
     timeOnPopular = {}
     timeOnPopularList = []
     for video in videoList:
+        print('kr', category, video)
         sql = 'select timeId from popular where videoId = "' + video + '"'
         result = dbhandler.fetchall(sql)
         time = 0
         for ele in result:
-            if ele[0] < 277:
-                time += 15
-            elif ele[0] == 277:
-                time += 22.5
-            elif ele[0] > 277:
-                time += 30
+            time += 30
         timeOnPopular[video] = time
         timeOnPopularList.append(time)
     timeOnPopularList = sorted(timeOnPopularList)
     timeOnPopularListList.append(timeOnPopularList)
 
 plothandler = plotHandler()
-plothandler.drawCDF(timeOnPopularListList, color, categorieskr, '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)', '8krresult.png')
-plothandler.drawLogCDF(timeOnPopularListList, color, categorieskr, '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)(Log)', '8krresultlog.png')
+plothandler.drawLogCDF(
+    timeOnPopularListList,
+    color,
+    categorieskr,
+    [60, 360, 720, 1440, 2880, 5760, 11520],
+    ['1시간', '6시간', '12시간', '1일', '2일', '4일', '8일'],
+    '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)(Log)',
+    '생존 기간',
+    '누적',
+    '8krresult.png'
+)
 
 
 config = {
@@ -53,21 +58,26 @@ for category in categoriesus:
     timeOnPopular = {}
     timeOnPopularList = []
     for video in videoList:
+        print('us', category, video)
         sql = 'select timeId from popular where videoId = "' + video + '"'
         result = dbhandler.fetchall(sql)
         time = 0
         for ele in result:
-            if ele[0] < 277:
-                time += 15
-            elif ele[0] == 277:
-                time += 22.5
-            elif ele[0] > 277:
-                time += 30
+            time += 30
         timeOnPopular[video] = time
         timeOnPopularList.append(time)
     timeOnPopularList = sorted(timeOnPopularList)
     timeOnPopularListList.append(timeOnPopularList)
 
 plothandler = plotHandler()
-plothandler.drawCDF(timeOnPopularListList, color, categoriesus, '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)', '8usresult.png')
-plothandler.drawLogCDF(timeOnPopularListList, color, categoriesus, '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)(Log)', '8usresultlog.png')
+plothandler.drawLogCDF(
+    timeOnPopularListList,
+    color,
+    categoriesus,
+    [60, 360, 720, 1440, 2880, 5760, 11520],
+    ['1시간', '6시간', '12시간', '1일', '2일', '4일', '8일'],
+    '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)(Log)',
+    '생존 기간',
+    '누적',
+    '8usresult.png'
+)

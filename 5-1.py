@@ -46,4 +46,4 @@ for video in videoList:
 likesHatesPerViewsList2 = sorted(likesHatesPerViewsList2)
 
 plothandler = plotHandler()
-plothandler.drawCDF([likesHatesPerViewsList, likesHatesPerViewsList2], ['blue', 'red'], ['KR', 'US'], '조회수 대비 (좋아요 + 싫어요)의 비율 CDF (영상별로 가장 마지막 timeId)', '5-1result.png')
+plothandler.drawCDF([likesHatesPerViewsList, likesHatesPerViewsList2], ['blue', 'red'], ['KR', 'US'], '조회수 대비 (좋아요 + 싫어요)의 비율 CDF (영상별로 가장 마지막 timeId)',  '(좋아요 + 싫어요) / 조회수', '누적', '5-1result.png')

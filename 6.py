@@ -18,7 +18,7 @@ dbhandler = DBHandler(config)
 timeIds = dbhandler.getTimeIds()
 
 category = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-col = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
+col = ['crimson', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 jaccardsList = []
 for ii in range(0, len(category)):
@@ -43,7 +43,7 @@ for ii in range(0, len(category)):
     jaccardsList.append(jaccards)
 
 plothandler = plotHandler()
-plothandler.drawCDF(jaccardsList, col, category, '카테고리 별로 인기 영상 얼마나 잘 변화하는지 CDF(KR)', '6krresult.png')
+plothandler.drawCDF(jaccardsList, col, category, '카테고리 별로 인기 영상 얼마나 잘 변화하는지(3시간 간격) CDF(KR)', 'Jaccard similarity', '누적', '6krresult.png')
 
 
 config = {
@@ -81,4 +81,4 @@ for ii in range(0, len(category)):
     jaccardsList.append(jaccards)
 
 plothandler = plotHandler()
-plothandler.drawCDF(jaccardsList, col, category, '카테고리 별로 인기 영상 얼마나 잘 변화하는지 CDF(US)', '6usresult.png')
+plothandler.drawCDF(jaccardsList, col, category, '카테고리 별로 인기 영상 얼마나 잘 변화하는지(3시간 간격) CDF(US)', 'Jaccard similarity', '누적', '6usresult.png')

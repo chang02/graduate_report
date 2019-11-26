@@ -48,4 +48,4 @@ for video in videoList:
 likesPerHates2 = sorted(likesPerHates2)
 
 plothandler = plotHandler()
-plothandler.drawCDF([likesPerHates, likesPerHates2], ['blue', 'red'], ['KR', 'US'], '(좋아요 / 싫어요) CDF (영상별로 가장 마지막 timeId)', '5-2result.png')
+plothandler.drawCDF([likesPerHates, likesPerHates2], ['blue', 'red'], ['KR', 'US'], '(좋아요 / 싫어요) CDF (영상별로 가장 마지막 timeId)', '좋아요/싫어요', '누적', '5-2result.png')

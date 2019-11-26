@@ -66,4 +66,4 @@ for i in range(0, len(sets) - 1):
 jaccards2 = sorted(jaccards2)
 
 plothandler = plotHandler()
-plothandler.drawCDF([jaccards, jaccards2], ['blue', 'red'], ['KR', 'US'], '인기 영상이 얼마나 잘 변화하는지 CDF', '2result.png')
+plothandler.drawCDF([jaccards, jaccards2], ['blue', 'red'], ['KR', 'US'], '인기 영상이 얼마나 잘 변화하는지(3시간 간격) CDF', 'Jaccard similarity', '누적', '2result.png')

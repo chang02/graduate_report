@@ -9,7 +9,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 categorieskr = ['뉴스/정치', '엔터테인먼트', '코미디', '인물/블로그', '스포츠']
-color = ['salmon', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
+color = ['crimson', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 
 likesHatesPerViewsListList = []
@@ -28,7 +28,7 @@ for category in categorieskr:
     likesHatesPerViewsListList.append(likesHatesPerViewsList)
 
 plothandler = plotHandler()
-plothandler.drawCDF(likesHatesPerViewsListList, color, categorieskr, '카테고리 별로 조회수 대비 (좋아요 + 싫어요)의 비율 CDF(KR)', '9krresult.png')
+plothandler.drawCDF(likesHatesPerViewsListList, color, categorieskr, '카테고리 별로 조회수 대비 (좋아요 + 싫어요)의 비율 CDF(KR)', '(좋아요 + 싫어요) / 조회수', '누적', '9krresult.png')
 
 
 config = {
@@ -58,4 +58,4 @@ for category in categoriesus:
     likesHatesPerViewsListList.append(likesHatesPerViewsList)
 
 plothandler = plotHandler()
-plothandler.drawCDF(likesHatesPerViewsListList, color, categoriesus, '카테고리 별로 조회수 대비 (좋아요 + 싫어요)의 비율 CDF(US)', '9usresult.png')
+plothandler.drawCDF(likesHatesPerViewsListList, color, categoriesus, '카테고리 별로 조회수 대비 (좋아요 + 싫어요)의 비율 CDF(US)', '(좋아요 + 싫어요) / 조회수', '누적', '9usresult.png')

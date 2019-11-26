@@ -1,4 +1,4 @@
-뉴스/정치 - salmon
+뉴스/정치 - crimson
 엔터테인먼트 - darkorange
 코미디 - khaki
 인물/블로그 - springgreen
