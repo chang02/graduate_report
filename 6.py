@@ -22,7 +22,7 @@ col = ['crimson', 'darkorange', 'khaki', 'springgreen', 'blueviolet']
 
 jaccardsList = []
 for ii in range(0, len(category)):
-    sql = 'select popular.timeId, popular.videoId from popular inner join (select distinct videoId, category from video) as v on popular.videoId = v.videoId where category="' + category[ii] + '" and timeId in ' + str(timeIds).replace('[','(').replace(']',')')
+    sql = 'select popular.timeId, popular.videoId from popular inner join (select distinct videoId, category from video where category is not null) as v on popular.videoId = v.videoId where category="' + category[ii] + '" and timeId in ' + str(timeIds).replace('[','(').replace(']',')')
     result = dbhandler.fetchall(sql)
     timeId = result[0][0]
     populars = []
@@ -55,12 +55,12 @@ config = {
 dbhandler = DBHandler(config)
 timeIds = dbhandler.getTimeIds()
 
-category = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
-col = ['darkorange', 'blueviolet', 'khaki', 'steelblue', 'springgreen']
+category = ['엔터테인먼트', '스포츠', '음악', '코미디', '인물/블로그']
+col = ['darkorange', 'blueviolet', 'olive', 'khaki', 'springgreen']
 
 jaccardsList = []
 for ii in range(0, len(category)):
-    sql = 'select popular.timeId, popular.videoId from popular inner join (select distinct videoId, category from video) as v on popular.videoId = v.videoId where category="' + category[ii] + '" and timeId in ' + str(timeIds).replace('[','(').replace(']',')')
+    sql = 'select popular.timeId, popular.videoId from popular inner join (select distinct videoId, category from video where category is not null) as v on popular.videoId = v.videoId where category="' + category[ii] + '" and timeId in ' + str(timeIds).replace('[','(').replace(']',')')
     result = dbhandler.fetchall(sql)
     timeId = result[0][0]
     populars = []

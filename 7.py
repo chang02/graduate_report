@@ -29,7 +29,7 @@ config = {
 }
 dbhandler = DBHandler(config)
 
-categories = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
+categories = ['엔터테인먼트', '스포츠', '음악', '코미디', '인물/블로그']
 plothandler = plotHandler()
 cnt = 0
 for category in categories:

@@ -2,6 +2,6 @@
 엔터테인먼트 - darkorange
 코미디 - khaki
 인물/블로그 - springgreen
-음악 - steelblue
+음악 - olive
 스포츠 - blueviolet
 기타 - cyan

@@ -35,7 +35,7 @@ plothandler.drawLogCDF(
     categorieskr,
     [60, 360, 720, 1440, 2880, 5760, 11520],
     ['1시간', '6시간', '12시간', '1일', '2일', '4일', '8일'],
-    '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)(Log)',
+    '카테고리 별 인기영상에 올라와 있는 시간 CDF(KR)',
     '생존 기간',
     '누적',
     '8krresult.png'
@@ -49,8 +49,8 @@ config = {
     "db": "youtube_popular2",
 }
 dbhandler = DBHandler(config)
-categoriesus = ['엔터테인먼트', '스포츠', '코미디', '음악', '인물/블로그']
-color = ['darkorange', 'blueviolet', 'khaki', 'steelblue', 'springgreen']
+categoriesus = ['엔터테인먼트', '스포츠', '음악', '코미디', '인물/블로그']
+color = ['darkorange', 'blueviolet', 'olive', 'khaki', 'springgreen']
 
 timeOnPopularListList = []
 for category in categoriesus:
@@ -76,7 +76,7 @@ plothandler.drawLogCDF(
     categoriesus,
     [60, 360, 720, 1440, 2880, 5760, 11520],
     ['1시간', '6시간', '12시간', '1일', '2일', '4일', '8일'],
-    '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)(Log)',
+    '카테고리 별 인기영상에 올라와 있는 시간 CDF(US)',
     '생존 기간',
     '누적',
     '8usresult.png'
