@@ -17,7 +17,7 @@ for category in categories:
     for video in videos:
         ranks = dbhandler.getRanks(video)
         rankList.append(ranks)
-    plothandler.drawRank(rankList, ['blue', 'red', 'yellow'], videos, category + '의 샘플 랭크 변화', '7kr' + str(cnt) + 'result.png')
+    plothandler.drawRank(rankList, ['blue', 'red', 'yellow', 'orange', 'violet'], videos, category + '의 샘플 랭크 변화(KR)', '7kr' + str(cnt) + 'result.png')
     cnt += 1
 
 
@@ -39,5 +39,5 @@ for category in categories:
     for video in videos:
         ranks = dbhandler.getRanks(video)
         rankList.append(ranks)
-    plothandler.drawRank(rankList, ['blue', 'red', 'yellow'], videos, category + '의 샘플 랭크 변화', '7us' + str(cnt) + 'result.png')
+    plothandler.drawRank(rankList, ['blue', 'red', 'yellow', 'orange', 'violet'], videos, category + '의 샘플 랭크 변화(US)', '7us' + str(cnt) + 'result.png')
     cnt += 1

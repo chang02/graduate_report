@@ -66,8 +66,8 @@ class DBHandler:
                 time += 30
             videoExist.append((time, video))
         videoExist = sorted(videoExist, key=lambda x: x[0], reverse=True)
-        result = videoExist[:3]
-        return [result[0][1], result[1][1], result[2][1]]
+        result = videoExist[:5]
+        return [result[0][1], result[1][1], result[2][1], result[3][1], result[4][1]]
     
     def getShortTermTimeIds(self):
         sql = 'select id from captureTime where minute(time) = 30 or minute(time) = 0'
@@ -180,7 +180,6 @@ class plotHandler:
                 y.append(value)
                 cnt += 1
             plt.plot(x, y, color=colors[i], label=labels[i])
-        plt.legend()
         plt.gca().invert_yaxis()
 
         templist = []
