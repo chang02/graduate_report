@@ -151,6 +151,7 @@ class plotHandler:
         plt.legend()
         plt.xscale('log')
         plt.xticks(xticks, xtickLabels)
+        plt.minorticks_off()
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
